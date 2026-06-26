@@ -9,8 +9,12 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Flow Planner">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iI0VBRjRGNSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTIiIHI9IjQuMiIgZmlsbD0iI0ZGNkI1QyIvPjxwYXRoIGQ9Ik00IDIwYzItMiA0LTIgNiAwczQgMiA2IDAgNC0yIDYgMCIgc3Ryb2tlPSIjMEZBOEEwIiBzdHJva2Utd2lkdGg9IjIuNCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTQgMjVjMi0yIDQtMiA2IDBzNCAyIDYgMCA0LTIgNiAwIiBzdHJva2U9IiMxQzZGQjgiIHN0cm9rZS13aWR0aD0iMi40IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=">
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iI0VBRjRGNSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTIiIHI9IjQuMiIgZmlsbD0iI0ZGNkI1QyIvPjxwYXRoIGQ9Ik00IDIwYzItMiA0LTIgNiAwczQgMiA2IDAgNC0yIDYgMCIgc3Ryb2tlPSIjMEZBOEEwIiBzdHJva2Utd2lkdGg9IjIuNCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTQgMjVjMi0yIDQtMiA2IDBzNCAyIDYgMCA0LTIgNiAwIiBzdHJva2U9IiMxQzZGQjgiIHN0cm9rZS13aWR0aD0iMi40IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <title>Flow Planner — your day, one wave at a time</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,8 +48,8 @@ input,textarea{font-family:inherit;font-size:1rem;color:inherit}
 
 /* ---------- shell ---------- */
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4vw,28px)}
-header.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 86%,transparent);
-  backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 96%,transparent);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .top-in{max-width:var(--maxw);margin:0 auto;padding:12px clamp(16px,4vw,28px);
   display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:1.22rem;font-weight:600}
@@ -214,10 +218,13 @@ body.demo #demo-banner{display:block}
 
 /* ---------- responsive: mobile bottom nav ---------- */
 @media(max-width:719px){
-  nav.tabs{position:fixed;bottom:0;left:0;right:0;top:auto;background:color-mix(in srgb,var(--bg) 92%,transparent);
-    backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:7px 0 calc(7px + env(safe-area-inset-bottom))}
-  .tab.active{background:transparent}
-  main{padding-bottom:96px}
+  nav.tabs{position:fixed;bottom:0;left:0;right:0;top:auto;z-index:40;
+    background:color-mix(in srgb,var(--bg) 97%,transparent);
+    -webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);
+    border-top:1px solid var(--line);box-shadow:0 -6px 20px color-mix(in srgb,var(--ink) 9%,transparent);
+    padding:7px 0 calc(7px + env(safe-area-inset-bottom))}
+  .tab.active{background:color-mix(in srgb,var(--surface) 94%,transparent)}
+  main{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
   .day-head{flex-wrap:wrap}
 }
 @media(min-width:720px){
@@ -1087,5 +1094,6 @@ renderAll();
 maybeReminder();
 showWelcomeMaybe();
 </script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
 </body>
 </html>

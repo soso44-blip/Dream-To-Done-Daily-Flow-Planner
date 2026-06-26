@@ -1,63 +1,57 @@
-# Flow Planner — live demo (GitHub Pages)
+# Flow Planner — full app (GitHub Pages / hosted link)
 
-A self-contained, installable PWA shell that hosts the **Flow Planner** live demo.
-Link it from your Etsy listing as "Try the live demo" — visitors can use it in the
-browser and **Add to Home Screen** so it opens like a real app, with your ocean icon.
+This bundle hosts the **full** Flow Planner as an installable web app. Sell or share the
+link; on a phone it can be added to the home screen with your ocean icon and opens like a
+native app, fully offline.
 
-> This is the **demo** build (sample data, resets on refresh) with the
-> "Get the full planner" banner pointing to your shop. It is the public, try-before-you-buy
-> version — not the paid file you sell on Etsy.
+> This is the **full** build (`index.html`, no demo banner). Each visitor's data is saved
+> in their own browser and persists across visits. There's a one-time "Welcome aboard" card
+> on first open. Anyone who has the URL can use the full app, so treat the link as the
+> product (e.g. deliver it on purchase) rather than posting it publicly.
 
 ## Files
-
 ```
-index.html               the Flow Planner demo (single file)
+index.html               the full Flow Planner app
 manifest.webmanifest      PWA manifest (name, icons, colors)
-sw.js                     service worker (offline caching)
+sw.js                     service worker (offline caching) — cache: flow-planner-v2
 favicon.ico               browser tab icon
-.nojekyll                 tells GitHub Pages to serve files as-is
-icons/                    app icons generated from your ocean icon
-  icon-192.png  icon-512.png                 (standard)
+.nojekyll                 serve files as-is on GitHub Pages
+icons/                    icons generated from your ocean icon
+  icon-192.png  icon-512.png                  (standard)
   icon-192-maskable.png  icon-512-maskable.png (Android adaptive, padded)
-  apple-touch-icon.png    (iOS home screen, 180px)
+  apple-touch-icon.png    (iOS home screen, 180px PNG — fixes the home-screen icon)
   favicon-32.png  favicon-16.png
 ```
 
-## Deploy (about 2 minutes)
+## Deploy (~2 minutes)
+**GitHub website (no command line)**
+1. Create a repository, e.g. `flow-planner`.
+2. **Add file → Upload files**, drag in everything here (keep the `icons/` folder together), commit.
+3. **Settings → Pages → Build and deployment**: Source = *Deploy from a branch*,
+   Branch = `main`, Folder = `/ (root)`. Save.
+4. After ~1 minute it's live at `https://YOUR-USERNAME.github.io/flow-planner/`.
 
-**Option A — GitHub website (no command line)**
-1. Create a new repository, e.g. `flow-planner`.
-2. Click **Add file → Upload files**, drag in everything from this folder
-   (keep the `icons/` folder together), and commit.
-3. Go to **Settings → Pages**. Under *Build and deployment*, set
-   **Source = Deploy from a branch**, **Branch = main**, **Folder = / (root)**. Save.
-4. Wait ~1 minute. Your demo is live at
-   `https://YOUR-USERNAME.github.io/flow-planner/`
-
-**Option B — git**
+**git**
 ```bash
-git init && git add . && git commit -m "Flow Planner demo"
+git init && git add . && git commit -m "Flow Planner"
 git branch -M main
 git remote add origin https://github.com/YOUR-USERNAME/flow-planner.git
 git push -u origin main
-# then enable Pages as in Option A, step 3
+# then enable Pages as above
 ```
 
-## Custom domain (optional)
-In **Settings → Pages → Custom domain**, add e.g. `flow.dreamstodone.com`, then create a
-`CNAME` DNS record at your registrar pointing to `YOUR-USERNAME.github.io`. GitHub will add
-a `CNAME` file for you.
+## Add to Home Screen (what your buyers do)
+- **iPhone (Safari):** Share → *Add to Home Screen*. Your ocean icon appears; it opens
+  full-screen with no browser bars.
+- **Android (Chrome):** the *Install app* / *Add to Home screen* prompt uses the same icon.
 
 ## Updating later
-When you change the app, replace `index.html` (export a fresh demo) **and bump the cache
-version** in `sw.js` — change `flow-planner-v1` to `-v2`, etc. Without that bump, returning
-visitors keep the old cached copy.
+Replace `index.html`, then **bump the cache version** in `sw.js`
+(`flow-planner-v2` → `-v3`). Without the bump, returning visitors keep the old cached copy.
 
 ## Notes
-- **Install:** on iPhone, Safari → Share → *Add to Home Screen*. On Android, Chrome offers
-  *Install app* / *Add to Home screen*. Your ocean icon is used on the home screen.
-- **Offline:** the service worker caches the app so it opens with no connection. Brand fonts
-  (Fraunces, Hanken Grotesk) load from Google Fonts when online and fall back to system
-  fonts offline. Want pixel-perfect fonts offline too? I can self-host them in this bundle.
-- **Want a private full-app copy hosted instead of the demo?** Swap `index.html` for the
-  paid file — just remember that publishing the full app for free competes with your Etsy sales.
+- **Offline:** the service worker caches the app so it opens with no connection. Brand
+  fonts load from Google Fonts online and fall back to system fonts offline — want them
+  embedded for pixel-perfect offline type? I can add that (~200 KB).
+- **Custom domain:** Settings → Pages → Custom domain (e.g. `flow.dreamstodone.com`) plus a
+  CNAME DNS record to `YOUR-USERNAME.github.io`.

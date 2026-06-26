@@ -1,5 +1,5 @@
 /* Flow Planner service worker — bump CACHE on every change to index.html or assets */
-const CACHE = 'flow-planner-v1';
+const CACHE = 'flow-planner-v2';
 const ASSETS = [
   './',
   './index.html',
