@@ -9,12 +9,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Flow Planner">
-<link rel="manifest" href="manifest.webmanifest">
-<meta name="mobile-web-app-capable" content="yes">
-<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iI0VBRjRGNSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTIiIHI9IjQuMiIgZmlsbD0iI0ZGNkI1QyIvPjxwYXRoIGQ9Ik00IDIwYzItMiA0LTIgNiAwczQgMiA2IDAgNC0yIDYgMCIgc3Ryb2tlPSIjMEZBOEEwIiBzdHJva2Utd2lkdGg9IjIuNCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTQgMjVjMi0yIDQtMiA2IDBzNCAyIDYgMCA0LTIgNiAwIiBzdHJva2U9IiMxQzZGQjgiIHN0cm9rZS13aWR0aD0iMi40IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iI0VBRjRGNSIvPjxjaXJjbGUgY3g9IjE2IiBjeT0iMTIiIHI9IjQuMiIgZmlsbD0iI0ZGNkI1QyIvPjxwYXRoIGQ9Ik00IDIwYzItMiA0LTIgNiAwczQgMiA2IDAgNC0yIDYgMCIgc3Ryb2tlPSIjMEZBOEEwIiBzdHJva2Utd2lkdGg9IjIuNCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTQgMjVjMi0yIDQtMiA2IDBzNCAyIDYgMCA0LTIgNiAwIiBzdHJva2U9IiMxQzZGQjgiIHN0cm9rZS13aWR0aD0iMi40IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=">
 <title>Flow Planner — your day, one wave at a time</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -581,7 +577,7 @@ body.demo #demo-banner{display:block}
 
 <script>
 /* ============== seed flag (demo file flips this single line) ============== */
-var SEED = true;
+var SEED = false;
 
 /* ============== storage (localStorage + in-memory fallback) ============== */
 var KEY='dailyflow-v2';
@@ -1091,6 +1087,5 @@ renderAll();
 maybeReminder();
 showWelcomeMaybe();
 </script>
-<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
 </body>
 </html>
